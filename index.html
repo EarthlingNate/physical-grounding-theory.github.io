@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Physical Grounding Theory</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f9f7f4;
+      --surface: #ffffff;
+      --border: #e2ddd8;
+      --text: #1a1816;
+      --muted: #6b6460;
+      --accent: #2c5f8a;
+      --accent-light: #e8f0f8;
+      --green: #2a6b4a;
+      --green-light: #e6f2ec;
+      --amber: #7a5c1e;
+      --amber-light: #fdf3dc;
+      --gray: #4a4845;
+      --gray-light: #f0eeec;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Header ── */
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 3rem 2rem 2.5rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin-bottom: 0.6rem;
+    }
+
+    header p.subtitle {
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* ── Main ── */
+    main {
+      flex: 1;
+      max-width: 760px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+    }
+
+    /* ── Paper cards ── */
+    .papers {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .paper-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.4rem 1.6rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+
+    .paper-card:hover {
+      border-color: #c8c0b8;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .paper-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .paper-number {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.18em 0.6em;
+      border-radius: 4px;
+    }
+
+    .badge-preprint { background: var(--accent-light); color: var(--accent); }
+    .badge-draft    { background: var(--amber-light);  color: var(--amber);  }
+    .badge-nascent  { background: var(--gray-light);   color: var(--gray);   }
+
+    .paper-title {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      line-height: 1.35;
+      color: var(--text);
+    }
+
+    .paper-note {
+      font-size: 0.83rem;
+      color: var(--muted);
+    }
+
+    .paper-actions {
+      margin-top: 0.4rem;
+    }
+
+    .btn-pdf {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--accent);
+      background: var(--accent-light);
+      border: 1px solid #c2d8ee;
+      border-radius: 5px;
+      padding: 0.38em 0.9em;
+      text-decoration: none;
+      transition: background 0.15s, border-color 0.15s;
+    }
+
+    .btn-pdf:hover {
+      background: #d8eaf8;
+      border-color: #a8c8e0;
+    }
+
+    .btn-pdf svg {
+      flex-shrink: 0;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2.5rem 0;
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 1.5rem 2rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Physical Grounding Theory</h1>
+  <p class="subtitle">Theory papers on artificial intelligence, the Physical Correspondence Principle, and the evolution of ethics.</p>
+</header>
+
+<main>
+  <p class="section-label">Papers</p>
+
+  <div class="papers">
+
+    <div class="paper-card">
+      <div class="paper-meta">
+        <span class="paper-number">Paper 0</span>
+        <span class="badge badge-draft">Draft</span>
+      </div>
+      <div class="paper-title">The Roots of Knowledge and Meaning</div>
+      <div class="paper-note">Unpublished</div>
+    </div>
+
+    <div class="paper-card">
+      <div class="paper-meta">
+        <span class="paper-number">Paper 1</span>
+        <span class="badge badge-preprint">Preprint · SSRN 6397178</span>
+      </div>
+      <div class="paper-title">Reality as Corrective: Physical Grounding as a Unified Solution to AI Alignment Pathologies</div>
+      <div class="paper-actions">
+        <a class="btn-pdf" href="PCP_AI_Grounding_Position.pdf" target="_blank">
+          <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V5.5L9.5 0H4zm5.5 1.5L13 5H9.5V1.5zM4.5 8h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1zm0 2.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1zm0 2.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1 0-1z"/>
+          </svg>
+          Download PDF
+        </a>
+      </div>
+    </div>
+
+    <div class="paper-card">
+      <div class="paper-meta">
+        <span class="paper-number">Paper 1.5</span>
+        <span class="badge badge-draft">Draft</span>
+      </div>
+      <div class="paper-title">The Physical Ground of Incompleteness</div>
+      <div class="paper-note">Unpublished</div>
+    </div>
+
+    <div class="paper-card">
+      <div class="paper-meta">
+        <span class="paper-number">Paper 2</span>
+        <span class="badge badge-draft">Draft</span>
+      </div>
+      <div class="paper-title">Evidence-Based Ethics</div>
+      <div class="paper-note">Working title · Unpublished</div>
+    </div>
+
+    <div class="paper-card">
+      <div class="paper-meta">
+        <span class="paper-number">Paper 3</span>
+        <span class="badge badge-nascent">Nascent</span>
+      </div>
+      <div class="paper-title">Epistemic Education and Institutional Design</div>
+      <div class="paper-note">Working title</div>
+    </div>
+
+    <div class="paper-card">
+      <div class="paper-meta">
+        <span class="paper-number">Paper 4</span>
+        <span class="badge badge-nascent">Nascent</span>
+      </div>
+      <div class="paper-title">AGI Architecture: GPGP to AGI</div>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="paper-card">
+      <div class="paper-meta">
+        <span class="paper-number">Companion Paper</span>
+        <span class="badge badge-draft">Draft</span>
+      </div>
+      <div class="paper-title">The Gardener's Responsibility</div>
+      <div class="paper-note">Unpublished</div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  Physical Grounding Theory &mdash; EarthlingNate
+</footer>
+
+</body>
+</html>
